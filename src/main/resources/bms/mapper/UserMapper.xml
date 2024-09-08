@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--        public int addUser(User user);-->
+<!--        public int deleteUser(int id);-->
+<!--        public int updateUser(User user);-->
+<!--        public User getUser(int id);-->
+<!--        public List<User> getAllUsers();-->
+
+<mapper namespace="bms.mapper.UserMapper">
+    <resultMap id="resultUser" type="">
+
+    </resultMap>
+
+    <select id="getUser" resultType="resultUser">
+        select * from user
+        <where>
+            id = #{id}
+        </where>
+    </select>
+</mapper>

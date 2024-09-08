@@ -4092,3 +4092,20 @@ jakarta.servlet.ServletException: Circular view path [find]: would dispatch back
 2024-09-08T17:31:41.507+08:00  INFO 28684 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
 2024-09-08T17:33:30.382+08:00  INFO 28684 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-09-08T17:33:30.394+08:00  INFO 28684 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-08T21:53:51.968+08:00  INFO 28380 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 28380 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-08T21:53:51.969+08:00  INFO 28380 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-08T21:53:52.511+08:00  INFO 28380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-08T21:53:52.521+08:00  INFO 28380 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-08T21:53:52.521+08:00  INFO 28380 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08T21:53:52.550+08:00  INFO 28380 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-08T21:53:52.550+08:00  INFO 28380 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 551 ms
+2024-09-08T21:53:52.897+08:00  INFO 28380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-08T21:53:52.901+08:00  INFO 28380 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.199 seconds (process running for 1.57)
+2024-09-08T21:54:00.416+08:00  INFO 28380 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-08T21:54:00.416+08:00  INFO 28380 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-08T21:54:00.417+08:00  INFO 28380 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-09-08T21:54:00.444+08:00  INFO 28380 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-08T21:54:00.651+08:00  INFO 28380 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4633b40a
+2024-09-08T21:54:00.651+08:00  INFO 28380 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-08T21:54:20.367+08:00  INFO 28380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-08T21:54:20.370+08:00  INFO 28380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

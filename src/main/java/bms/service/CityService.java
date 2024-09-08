@@ -1,4 +1,4 @@
-package bms.service.city;
+package bms.service;
 
 import bms.domain.City;
 

@@ -10,14 +10,87 @@
 <!--        public List<User> getAllUsers();-->
 
 <mapper namespace="bms.mapper.UserMapper">
-    <resultMap id="resultUser" type="">
-
+    <resultMap id="resultUser" type="bms.domain.User">
+        <result column="user_name" property="username" />
+        <result column="user_password" property="password" />
+        <result column="image_url" property="imageUrl" />
+        <result column="created_time" property="createdTime" />
     </resultMap>
 
-    <select id="getUser" resultType="resultUser">
+<!--    select user by Id-->
+    <select id="getUser" resultMap="resultUser">
         select * from user
         <where>
             id = #{id}
-        </where>
+        </where>;
     </select>
+
+<!--    select all users-->
+    <select id="getAllUsers" resultMap="resultUser">
+        select * from user;
+    </select>
+
+<!--    delete user by id-->
+    <delete id="deleteUser">
+        delete from user
+        where id = #{id}
+    </delete>
+
+<!--    add user by told information-->
+    <insert id="addUser">
+        insert into user
+        <trim prefix="(" suffix = ")" suffixOverrides=",">
+            <if test="username != null and username != ''">
+                user_name,
+            </if>
+            <if test="password != null and password != ''">
+                user_password,
+            </if>
+            <if test="email !=  null and email != ''">
+                email,
+            </if>
+            <if test="imageUrl != null and imageUrl != ''">
+                image_url,
+            </if>
+        </trim>
+
+        <trim prefix="value(" suffix = ");" suffixOverrides=",">
+            <if test="username != null and username != ''">
+                #{username},
+            </if>
+            <if test="password != null and password != ''">
+                #{password},
+            </if>
+            <if test="email !=  null and email != ''">
+                #{email},
+            </if>
+            <if test="imageUrl != null and imageUrl != ''">
+                #{imageUrl},
+            </if>
+        </trim>
+    </insert>
+
+<!--    update user's data-->
+    <update id="updateUser">
+        update user
+        <set>
+            <if test="username != null and username != ''">
+                user_name = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                user_password = #{password},
+            </if>
+            <if test="email !=  null and email != ''">
+                email = #{email},
+            </if>
+            <if test="imageUrl != null and imageUrl != ''">
+                image_url = #{imageUrl},
+            </if>
+            <if test="createdTime != null and createdUrl != ''">
+                created_time = #{createdTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
 </mapper>

@@ -9,6 +9,7 @@
         <result column="user_name" property="username" />
         <result column="user_password" property="password" />
         <result column="image_url" property="imageUrl" />
+        <result column="updated_time" property="updatedTime" />
         <result column="created_time" property="createdTime" />
     </resultMap>
 
@@ -47,6 +48,7 @@
             <if test="imageUrl != null and imageUrl != ''">
                 image_url,
             </if>
+                updated_time,
         </trim>
 
         <trim prefix="value(" suffix = ");" suffixOverrides=",">
@@ -62,6 +64,7 @@
             <if test="imageUrl != null and imageUrl != ''">
                 #{imageUrl},
             </if>
+                CURRENT_TIMESTAMP(),
         </trim>
     </insert>
 
@@ -81,9 +84,7 @@
             <if test="imageUrl != null and imageUrl != ''">
                 image_url = #{imageUrl},
             </if>
-            <if test="createdTime != null and createdUrl != ''">
-                created_time = #{createdTime},
-            </if>
+                updated_time = CURRENT_TIMESTAMP(),
         </set>
         where id = #{id}
     </update>

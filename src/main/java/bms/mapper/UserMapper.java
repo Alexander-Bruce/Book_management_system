@@ -8,13 +8,13 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    @Transactional
+    // @Transactional
     public int addUser(User user);
 
     @Transactional
     public int deleteUser(int id);
 
-    @Transactional
+    // @Transactional
     public int updateUser(User user);
 
     @Transactional

@@ -15,7 +15,8 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String imageUrl;
     private String email;
+    private String imageUrl;
+    private LocalDateTime updatedTime;
     private LocalDateTime createdTime;
 }

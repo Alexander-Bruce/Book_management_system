@@ -20,23 +20,14 @@ public class BookManagementSystemApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // System.out.println(userService.getAllUsers());
-        // System.out.println(userService.getUser(1));
-//        User user = User.builder()
-//                    .id(1)
-//                    .username("张三")
-//                    .password("123456")
-//                    .imageUrl("null")
-//                    .email("example@gmail.com")
-//                    .build();
-//        System.out.println(userService.updateUser(user));
+
         User user = User.builder()
-                .username("Alexander")
+                .id(1)
+                .username("Bush")
                 .password("Heqinglin2021")
-                .email("qinglinhe44@gmail.com")
+                .email("qinglinhe44@hotmail.com")
                 .build();
-        System.out.println(userService.addUser(user));
-        System.out.println(userService.getUser(13));
+        System.out.println(userService.updateUser(user));
     }
 
 }

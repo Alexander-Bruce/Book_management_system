@@ -18,10 +18,13 @@
         select * from user
         <where>
             <if test="id != null">
-                or id = #{id}
+                and id = #{id}
             </if>
             <if test="username != null and username != ''">
-                or user_name = #{username}
+                and user_name = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and user_password = #{password}
             </if>
         </where>;
     </select>
@@ -40,45 +43,55 @@
 <!--    add user by told information-->
     <insert id="addUser">
         insert into user
-        <trim prefix="(" suffix = ")" suffixOverrides=",">
+        <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="username != null and username != ''">
                 user_name,
+            </if>
+            <if test="surname != null and surname != ''">
+                surname,
             </if>
             <if test="password != null and password != ''">
                 user_password,
             </if>
-            <if test="email !=  null and email != ''">
+            <if test="email != null and email != ''">
                 email,
             </if>
             <if test="imageUrl != null and imageUrl != ''">
                 image_url,
             </if>
-                updated_time,
+            updated_time,
         </trim>
 
-        <trim prefix="value(" suffix = ");" suffixOverrides=",">
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="username != null and username != ''">
                 #{username},
+            </if>
+            <if test="surname != null and surname != ''">
+                #{surname},
             </if>
             <if test="password != null and password != ''">
                 #{password},
             </if>
-            <if test="email !=  null and email != ''">
+            <if test="email != null and email != ''">
                 #{email},
             </if>
             <if test="imageUrl != null and imageUrl != ''">
                 #{imageUrl},
             </if>
-                CURRENT_TIMESTAMP(),
+            CURRENT_TIMESTAMP(),
         </trim>
     </insert>
 
-<!--    update user's data-->
+
+    <!--    update user's data-->
     <update id="updateUser">
         update user
         <set>
             <if test="username != null and username != ''">
                 user_name = #{username},
+            </if>
+            <if test="surname != null and surname != ''">
+                surname = #{surname},
             </if>
             <if test="password != null and password != ''">
                 user_password = #{password},

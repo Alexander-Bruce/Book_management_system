@@ -3,10 +3,13 @@ package bms.service.impl;
 import bms.domain.User;
 import bms.mapper.UserMapper;
 import bms.service.UserService;
+import bms.utils.AES;
+import bms.utils.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -15,6 +18,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int addUser(User user){
+        user.setPassword(AES.encode(user.getPassword()));
+        // user.setUsername(UUIDGenerator.getUuid());
         return userMapper.addUser(user);
     }
     @Override
@@ -27,6 +32,8 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public User getUser(User user){
+        if(user.getPassword() != null)
+            user.setPassword(AES.encode(user.getPassword()));
         return userMapper.getUser(user);
     }
     @Override

@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("bms.mapper")
-public class BookManagementSystemApplication implements CommandLineRunner {
+public class BookManagementSystemApplication {
     @Autowired
     private UserService userService;
 
@@ -18,13 +18,12 @@ public class BookManagementSystemApplication implements CommandLineRunner {
         SpringApplication.run(BookManagementSystemApplication.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-
-        User user = User.builder()
-                .id(1)
-                .build();
-        System.out.println(userService.getUser(user));
-    }
-
+//    @Override
+//    public void run(String... args) throws Exception {
+//        User user = User.builder()
+//                .id(10)
+//                .surname("Alexander")
+//                .build();
+//        System.out.println(userService.updateUser(user));
+//    }
 }

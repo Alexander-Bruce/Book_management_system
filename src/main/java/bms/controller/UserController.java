@@ -3,24 +3,27 @@ package bms.controller;
 import bms.domain.Result;
 import bms.domain.User;
 import bms.service.UserService;
+import bms.utils.AES;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("user/register")
-    public Result register(User user) {
-        if(userService.getUser(user) != null) {
+    @PostMapping("user/register")
+    public Result register(@RequestBody User user) {
+         if(userService.getUser(user) == null) {
+            userService.addUser(user);
             return Result.success(
                     200,
                     "success",
-                    userService.addUser(user)
+                    user
             );
         }
         return Result.error(
@@ -30,9 +33,25 @@ public class UserController {
         );
     }
 
+    @PostMapping("user/login")
+    public Result login(@RequestBody User user) {
+        if(userService.getUser(user) == null) {
+            return Result.error(
+                    400,
+                    "please signup account first."
+            );
+        }
+        return Result.success(
+                200,
+                "success",
+                user
+        );
+    }
+
     @GetMapping("user/delete")
     public Result delete(User user) {
-        if(userService.getUser(user) != null){
+        user = userService.getUser(user);
+        if(user != null){
             return Result.success(
                     200,
                     "success",
@@ -48,7 +67,8 @@ public class UserController {
 
     @GetMapping("user/update")
     public Result update(User user) {
-        if (userService.getUser(user) != null) {
+        user = userService.getUser(user);
+        if (user != null) {
             userService.updateUser(user);
             return Result.success(
                     200,

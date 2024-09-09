@@ -23,11 +23,8 @@ public class BookManagementSystemApplication implements CommandLineRunner {
 
         User user = User.builder()
                 .id(1)
-                .username("Bush")
-                .password("Heqinglin2021")
-                .email("qinglinhe44@hotmail.com")
                 .build();
-        System.out.println(userService.updateUser(user));
+        System.out.println(userService.getUser(user));
     }
 
 }

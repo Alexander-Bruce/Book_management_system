@@ -1,5 +1,6 @@
 package bms.controller;
 
+import bms.domain.Result;
 import bms.domain.User;
 import bms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,28 +15,69 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("user/register")
-    public void register(User user) {
-        userService.addUser(user);
+    public Result register(User user) {
+        if(userService.getUser(user) != null) {
+            return Result.success(
+                    200,
+                    "success",
+                    userService.addUser(user)
+            );
+        }
+        return Result.error(
+                400,
+                "user already exists",
+                null
+        );
     }
 
     @GetMapping("user/delete")
-    public void delete(User user) {
-        if(userService.getUser(user) != null)
-            userService.deleteUser(user.getId());
+    public Result delete(User user) {
+        if(userService.getUser(user) != null){
+            return Result.success(
+                    200,
+                    "success",
+                    userService.deleteUser(user.getId())
+            );
+        }
+        return Result.error(
+                400,
+                "user does not exist",
+                null
+        );
     }
 
     @GetMapping("user/update")
-    public void update(User user) {
-        userService.updateUser(user);
+    public Result update(User user) {
+        if (userService.getUser(user) != null) {
+            userService.updateUser(user);
+            return Result.success(
+                    200,
+                    "success",
+                    null
+            );
+        }
+        return Result.error(
+                400,
+                "user does not exist",
+                null
+        );
     }
 
     @GetMapping("user/admin/userlist")
-    public List<User> getUserList() {
-        return userService.getAllUsers();
+    public Result getUserList() {
+        return Result.success(
+                200,
+                "success",
+                userService.getAllUsers()
+        );
     }
 
    @GetMapping("user/self")
-   public User getUser(User user) {
-        return userService.getUser(user);
+   public Result getUser(User user) {
+        return Result.success(
+                200,
+                "success",
+                userService.getUser(user)
+        );
    }
 }

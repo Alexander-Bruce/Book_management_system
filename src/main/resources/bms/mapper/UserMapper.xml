@@ -20,6 +20,9 @@
             <if test="id != null">
                 and id = #{id}
             </if>
+            <if test="id != null">
+                and uuid = #{uuid}
+            </if>
             <if test="username != null and username != ''">
                 and user_name = #{username}
             </if>
@@ -44,6 +47,7 @@
     <insert id="addUser">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
+            uuid,
             <if test="username != null and username != ''">
                 user_name,
             </if>
@@ -63,6 +67,7 @@
         </trim>
 
         <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{uuid},
             <if test="username != null and username != ''">
                 #{username},
             </if>

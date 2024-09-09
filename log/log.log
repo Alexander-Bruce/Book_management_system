@@ -3435,3 +3435,116 @@ Was expecting one of:
 2024-09-09T19:50:49.148+08:00  INFO 6448 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 2024-09-09T19:50:49.341+08:00  INFO 6448 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4759a426
 2024-09-09T19:50:49.342+08:00  INFO 6448 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T19:54:23.127+08:00  INFO 6448 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-09T19:54:23.131+08:00  INFO 6448 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-09T20:47:30.723+08:00  INFO 12416 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 12416 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-09T20:47:30.724+08:00  INFO 12416 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T20:47:31.463+08:00  INFO 12416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T20:47:31.477+08:00  INFO 12416 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T20:47:31.477+08:00  INFO 12416 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-09T20:47:31.527+08:00  INFO 12416 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T20:47:31.527+08:00  INFO 12416 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 767 ms
+2024-09-09T20:47:32.079+08:00  INFO 12416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-09T20:47:32.087+08:00  INFO 12416 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.72 seconds (process running for 1.97)
+2024-09-09T20:47:48.156+08:00  INFO 12620 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 12620 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-09T20:47:48.157+08:00  INFO 12620 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T20:47:48.848+08:00  INFO 12620 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T20:47:48.860+08:00  INFO 12620 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T20:47:48.861+08:00  INFO 12620 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-09T20:47:48.899+08:00  INFO 12620 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T20:47:48.900+08:00  INFO 12620 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 707 ms
+2024-09-09T20:47:49.405+08:00  INFO 12620 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-09T20:47:49.418+08:00  INFO 12620 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.589 seconds (process running for 1.798)
+2024-09-09T20:47:54.411+08:00  INFO 12620 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T20:47:54.412+08:00  INFO 12620 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-09T20:47:54.412+08:00  INFO 12620 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-09-09T20:47:54.498+08:00  INFO 12620 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T20:47:54.765+08:00  INFO 12620 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6238e87a
+2024-09-09T20:47:54.767+08:00  INFO 12620 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T20:49:14.841+08:00  INFO 12620 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-09T20:49:14.846+08:00  INFO 12620 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-09T20:49:16.835+08:00  INFO 18004 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 18004 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-09T20:49:16.836+08:00  INFO 18004 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T20:49:17.505+08:00  INFO 18004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T20:49:17.517+08:00  INFO 18004 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T20:49:17.517+08:00  INFO 18004 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-09T20:49:17.558+08:00  INFO 18004 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T20:49:17.559+08:00  INFO 18004 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 692 ms
+2024-09-09T20:49:18.061+08:00  INFO 18004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-09T20:49:18.069+08:00  INFO 18004 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.565 seconds (process running for 1.771)
+2024-09-09T20:49:19.917+08:00  INFO 18004 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T20:49:19.918+08:00  INFO 18004 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-09T20:49:19.918+08:00  INFO 18004 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-09-09T20:49:20.000+08:00  INFO 18004 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T20:49:20.192+08:00  INFO 18004 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7605e1ce
+2024-09-09T20:49:20.193+08:00  INFO 18004 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T20:50:13.614+08:00  INFO 18004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-09T20:50:13.618+08:00  INFO 18004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-09T20:50:15.642+08:00  INFO 8424 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 8424 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-09T20:50:15.644+08:00  INFO 8424 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T20:50:16.363+08:00  INFO 8424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T20:50:16.373+08:00  INFO 8424 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T20:50:16.374+08:00  INFO 8424 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-09T20:50:16.417+08:00  INFO 8424 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T20:50:16.417+08:00  INFO 8424 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 732 ms
+2024-09-09T20:50:16.913+08:00  INFO 8424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-09T20:50:16.924+08:00  INFO 8424 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.6 seconds (process running for 1.813)
+2024-09-09T20:50:17.453+08:00  INFO 8424 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T20:50:17.453+08:00  INFO 8424 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-09T20:50:17.454+08:00  INFO 8424 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-09-09T20:50:17.530+08:00  INFO 8424 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T20:50:17.728+08:00  INFO 8424 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@38c08edf
+2024-09-09T20:50:17.729+08:00  INFO 8424 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T20:51:58.471+08:00  INFO 8424 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-09T20:51:58.475+08:00  INFO 8424 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-09T20:52:00.486+08:00  INFO 20428 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 20428 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-09T20:52:00.487+08:00  INFO 20428 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T20:52:01.148+08:00  INFO 20428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T20:52:01.159+08:00  INFO 20428 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T20:52:01.160+08:00  INFO 20428 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-09T20:52:01.195+08:00  INFO 20428 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T20:52:01.196+08:00  INFO 20428 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 674 ms
+2024-09-09T20:52:01.681+08:00  INFO 20428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-09T20:52:01.691+08:00  INFO 20428 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.52 seconds (process running for 1.723)
+2024-09-09T20:52:06.839+08:00  INFO 20428 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T20:52:06.839+08:00  INFO 20428 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-09T20:52:06.840+08:00  INFO 20428 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-09-09T20:52:06.912+08:00  INFO 20428 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T20:52:07.103+08:00  INFO 20428 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15f04a39
+2024-09-09T20:52:07.104+08:00  INFO 20428 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T20:54:27.433+08:00  INFO 20428 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-09T20:54:27.437+08:00  INFO 20428 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-09T20:54:29.501+08:00  INFO 13648 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 13648 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-09T20:54:29.503+08:00  INFO 13648 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T20:54:30.220+08:00  INFO 13648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T20:54:30.231+08:00  INFO 13648 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T20:54:30.231+08:00  INFO 13648 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-09T20:54:30.272+08:00  INFO 13648 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T20:54:30.272+08:00  INFO 13648 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 738 ms
+2024-09-09T20:54:30.754+08:00  INFO 13648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-09T20:54:30.762+08:00  INFO 13648 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.594 seconds (process running for 1.8)
+2024-09-09T20:54:31.607+08:00  INFO 13648 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T20:54:31.607+08:00  INFO 13648 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-09T20:54:31.608+08:00  INFO 13648 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-09-09T20:54:31.690+08:00  INFO 13648 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T20:54:31.876+08:00  INFO 13648 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a94836c
+2024-09-09T20:54:31.877+08:00  INFO 13648 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T20:54:55.551+08:00  INFO 13648 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-09T20:54:55.556+08:00  INFO 13648 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-09T21:17:22.959+08:00  INFO 21696 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 21696 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-09T21:17:22.960+08:00  INFO 21696 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T21:17:23.699+08:00  INFO 21696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T21:17:23.709+08:00  INFO 21696 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T21:17:23.710+08:00  INFO 21696 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-09T21:17:23.745+08:00  INFO 21696 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T21:17:23.746+08:00  INFO 21696 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 752 ms
+2024-09-09T21:17:24.251+08:00  INFO 21696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-09T21:17:24.261+08:00  INFO 21696 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.668 seconds (process running for 1.914)
+2024-09-09T21:17:29.692+08:00  INFO 21696 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T21:17:29.692+08:00  INFO 21696 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-09T21:17:29.693+08:00  INFO 21696 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-09-09T21:17:29.770+08:00  INFO 21696 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T21:17:30.003+08:00  INFO 21696 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@29b7ed5e
+2024-09-09T21:17:30.004+08:00  INFO 21696 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T21:17:37.958+08:00  INFO 21696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-09T21:17:37.963+08:00  INFO 21696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

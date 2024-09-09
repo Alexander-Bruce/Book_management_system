@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 public class User {
     private Integer id;
+    private String uuid;
     private String username;
     private String surname;
     private String password;

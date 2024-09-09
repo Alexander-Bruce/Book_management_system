@@ -1,14 +1,12 @@
 package bms.utils;
 
-import lombok.Value;
-
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.SecureRandom;
 
-public class AES {
+public class AESUtils {
     private static String pwd = System.getenv("AES_SECRET_KEY");
 //     * 将传入的明文转换为密文
 //     * @param str

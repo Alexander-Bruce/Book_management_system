@@ -3,12 +3,15 @@ package bms.controller;
 import bms.domain.Result;
 import bms.domain.User;
 import bms.service.UserService;
-import bms.utils.AES;
+import bms.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 @RestController
@@ -35,16 +38,24 @@ public class UserController {
 
     @PostMapping("user/login")
     public Result login(@RequestBody User user) {
-        if(userService.getUser(user) == null) {
+        User targetUser = userService.getUser(user);
+
+        if(targetUser == null) {
             return Result.error(
-                    400,
+                    404,
                     "please signup account first."
             );
         }
+
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("uuid", targetUser.getUuid());
+        claims.put("username", user.getUsername());
+        String token = JWTUtils.createJwtToken(claims);
+
         return Result.success(
                 200,
                 "success",
-                user
+                token
         );
     }
 

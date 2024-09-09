@@ -18,7 +18,7 @@ public interface UserMapper {
     public int updateUser(User user);
 
     @Transactional
-    public User getUser(int id);
+    public User getUser(User user);
 
     @Transactional
     public List<User> getAllUsers();

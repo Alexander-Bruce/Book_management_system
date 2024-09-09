@@ -17,7 +17,12 @@
     <select id="getUser" resultMap="resultUser">
         select * from user
         <where>
-            id = #{id}
+            <if test="id != null">
+                or id = #{id}
+            </if>
+            <if test="username != null and username != ''">
+                or user_name = #{username}
+            </if>
         </where>;
     </select>
 

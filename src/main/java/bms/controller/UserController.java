@@ -20,7 +20,8 @@ public class UserController {
 
     @GetMapping("user/delete")
     public void delete(User user) {
-        userService.deleteUser(user.getId());
+        if(userService.getUser(user) != null)
+            userService.deleteUser(user.getId());
     }
 
     @GetMapping("user/update")
@@ -35,6 +36,6 @@ public class UserController {
 
    @GetMapping("user/self")
    public User getUser(User user) {
-        return userService.getUser(user.getId());
+        return userService.getUser(user);
    }
 }

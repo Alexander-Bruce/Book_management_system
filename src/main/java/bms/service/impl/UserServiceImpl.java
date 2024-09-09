@@ -26,8 +26,8 @@ public class UserServiceImpl implements UserService {
         return userMapper.updateUser(user);
     }
     @Override
-    public User getUser(int id){
-        return userMapper.getUser(id);
+    public User getUser(User user){
+        return userMapper.getUser(user);
     }
     @Override
     public List<User> getAllUsers(){

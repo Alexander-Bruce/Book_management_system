@@ -25,6 +25,7 @@ public class UserController {
 
          if(userService.getUser(user) == null) {
             userService.addUser(user);
+
             return Result.success(
                     200,
                     "success",
@@ -51,7 +52,7 @@ public class UserController {
         }
 
 
-        if (!passwordEncoder.matches(user.getPassword(), targetUser.getPassword())) {
+        if (!userService.userAuthorization(user)) {
             return Result.error(
                     400,
                     "Incorrect password."
@@ -60,8 +61,7 @@ public class UserController {
 
         return Result.success(
                 200,
-                "Login success",
-                targetUser
+                "Login success"
         );
     }
 
@@ -70,7 +70,7 @@ public class UserController {
         user = userService.getUser(user);
 
 
-        if(user != null){
+        if(user != null && userService.userAuthorization(user)){
             return Result.success(
                     200,
                     "success",
@@ -89,7 +89,7 @@ public class UserController {
     public Result update(User user) {
         user = userService.getUser(user);
 
-        if (user != null) {
+        if (user != null && userService.userAuthorization(user)) {
             userService.updateUser(user);
             return Result.success(
                     200,

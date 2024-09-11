@@ -42,4 +42,11 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers(){
         return userMapper.getAllUsers();
     }
+
+    @Override
+    public boolean userAuthorization(User user){
+        User targetUser = userMapper.getUser(user);
+
+        return passwordEncoder.matches(user.getPassword(), targetUser.getPassword());
+    }
 }

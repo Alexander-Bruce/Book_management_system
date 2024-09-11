@@ -26,9 +26,6 @@
             <if test="username != null and username != ''">
                 and user_name = #{username}
             </if>
-            <if test="password != null and password != ''">
-                and user_password = #{password}
-            </if>
         </where>;
     </select>
 

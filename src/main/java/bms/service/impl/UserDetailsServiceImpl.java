@@ -19,7 +19,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userMapper.getUser(User.builder().username(username).build());
         if (user == null) {
-            System.out.println("User Not Found");
             throw new UsernameNotFoundException("user not found");
         }
 

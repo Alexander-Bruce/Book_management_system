@@ -3,24 +3,26 @@ package bms.controller;
 import bms.domain.Result;
 import bms.domain.User;
 import bms.service.UserService;
-import bms.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.Map;
-
 
 @RestController
 public class UserController {
+
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     @PostMapping("user/register")
     public Result register(@RequestBody User user) {
+
          if(userService.getUser(user) == null) {
             userService.addUser(user);
             return Result.success(
@@ -29,6 +31,7 @@ public class UserController {
                     user
             );
         }
+
         return Result.error(
                 400,
                 "user already exists",
@@ -40,28 +43,33 @@ public class UserController {
     public Result login(@RequestBody User user) {
         User targetUser = userService.getUser(user);
 
-        if(targetUser == null) {
+        if (targetUser == null) {
             return Result.error(
                     404,
-                    "please signup account first."
+                    "User does not exist. Please sign up first."
             );
         }
 
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("uuid", targetUser.getUuid());
-        claims.put("username", user.getUsername());
-        String token = JWTUtils.createJwtToken(claims);
+
+        if (!passwordEncoder.matches(user.getPassword(), targetUser.getPassword())) {
+            return Result.error(
+                    400,
+                    "Incorrect password."
+            );
+        }
 
         return Result.success(
                 200,
-                "success",
-                token
+                "Login success",
+                targetUser
         );
     }
 
     @GetMapping("user/delete")
     public Result delete(User user) {
         user = userService.getUser(user);
+
+
         if(user != null){
             return Result.success(
                     200,
@@ -69,6 +77,7 @@ public class UserController {
                     userService.deleteUser(user.getId())
             );
         }
+
         return Result.error(
                 400,
                 "user does not exist",
@@ -79,6 +88,7 @@ public class UserController {
     @GetMapping("user/update")
     public Result update(User user) {
         user = userService.getUser(user);
+
         if (user != null) {
             userService.updateUser(user);
             return Result.success(
@@ -87,6 +97,7 @@ public class UserController {
                     null
             );
         }
+
         return Result.error(
                 400,
                 "user does not exist",
@@ -96,6 +107,7 @@ public class UserController {
 
     @GetMapping("user/admin/userlist")
     public Result getUserList() {
+
         return Result.success(
                 200,
                 "success",
@@ -105,6 +117,7 @@ public class UserController {
 
    @GetMapping("user/self")
    public Result getUser(User user) {
+
         return Result.success(
                 200,
                 "success",

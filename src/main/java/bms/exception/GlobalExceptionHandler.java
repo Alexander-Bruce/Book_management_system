@@ -1,6 +1,6 @@
 package bms.exception;
 
-import bms.domain.Result;
+import bms.domain.ResponseBody;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
-    public Result exception(Exception e) {
+    public ResponseBody exception(Exception e) {
         e.printStackTrace();
-        return Result.error(
+        return ResponseBody.error(
                 500,
                 StringUtils.hasLength(e.getMessage()) ? e.getMessage(): "error in operation."
         );

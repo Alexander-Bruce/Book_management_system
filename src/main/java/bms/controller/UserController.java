@@ -1,10 +1,9 @@
 package bms.controller;
 
-import bms.domain.Result;
+import bms.domain.ResponseBody;
 import bms.domain.User;
 import bms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,23 +16,20 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
-
     @PostMapping("user/register")
-    public Result register(@RequestBody User user) {
+    public ResponseBody register(@RequestBody User user) {
 
          if(userService.getUser(user) == null) {
             userService.addUser(user);
 
-            return Result.success(
+            return ResponseBody.success(
                     200,
                     "success",
                     user
             );
         }
 
-        return Result.error(
+        return ResponseBody.error(
                 400,
                 "user already exists",
                 null
@@ -41,44 +37,44 @@ public class UserController {
     }
 
     @PostMapping("user/login")
-    public Result login(@RequestBody User user) {
+    public ResponseBody login(@RequestBody User user) {
         User targetUser = userService.getUser(user);
 
         if (targetUser == null) {
-            return Result.error(
+            return ResponseBody.error(
                     404,
                     "User does not exist. Please sign up first."
             );
         }
 
 
-        if (!userService.userAuthorization(user)) {
-            return Result.error(
+        if (!userService.userAuthorization(user, targetUser)) {
+            return ResponseBody.error(
                     400,
                     "Incorrect password."
             );
         }
 
-        return Result.success(
+        return ResponseBody.success(
                 200,
                 "Login success"
         );
     }
 
     @GetMapping("user/delete")
-    public Result delete(User user) {
-        user = userService.getUser(user);
+    public ResponseBody delete(User user) {
+        User targetUser = userService.getUser(user);
 
 
-        if(user != null && userService.userAuthorization(user)){
-            return Result.success(
+        if(targetUser != null && userService.userAuthorization(user, targetUser)){
+            return ResponseBody.success(
                     200,
                     "success",
                     userService.deleteUser(user.getId())
             );
         }
 
-        return Result.error(
+        return ResponseBody.error(
                 400,
                 "user does not exist",
                 null
@@ -86,19 +82,19 @@ public class UserController {
     }
 
     @GetMapping("user/update")
-    public Result update(User user) {
-        user = userService.getUser(user);
+    public ResponseBody update(User user) {
+        User targetUser = userService.getUser(user);
 
-        if (user != null && userService.userAuthorization(user)) {
+        if (targetUser != null && userService.userAuthorization(user, targetUser)) {
             userService.updateUser(user);
-            return Result.success(
+            return ResponseBody.success(
                     200,
                     "success",
                     null
             );
         }
 
-        return Result.error(
+        return ResponseBody.error(
                 400,
                 "user does not exist",
                 null
@@ -106,9 +102,9 @@ public class UserController {
     }
 
     @GetMapping("user/admin/userlist")
-    public Result getUserList() {
+    public ResponseBody getUserList() {
 
-        return Result.success(
+        return ResponseBody.success(
                 200,
                 "success",
                 userService.getAllUsers()
@@ -116,9 +112,9 @@ public class UserController {
     }
 
    @GetMapping("user/self")
-   public Result getUser(User user) {
+   public ResponseBody getUser(User user) {
 
-        return Result.success(
+        return ResponseBody.success(
                 200,
                 "success",
                 userService.getUser(user)

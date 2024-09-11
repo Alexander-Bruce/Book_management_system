@@ -44,8 +44,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean userAuthorization(User user){
-        User targetUser = userMapper.getUser(user);
+    public boolean userAuthorization(User user, User targetUser){
 
         return passwordEncoder.matches(user.getPassword(), targetUser.getPassword());
     }

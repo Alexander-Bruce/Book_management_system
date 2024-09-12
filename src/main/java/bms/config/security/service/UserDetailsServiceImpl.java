@@ -1,7 +1,7 @@
-package bms.service.impl;
+package bms.config.security.service;
 
+import bms.config.security.model.UserPrincipal;
 import bms.domain.User;
-import bms.domain.UserPrincipal;
 import bms.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,9 +18,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userMapper.getUser(User.builder().username(username).build());
-        if (user == null) {
+
+        if (user == null)
             throw new UsernameNotFoundException("user not found");
-        }
 
         return new UserPrincipal(user);
     }

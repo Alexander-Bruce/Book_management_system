@@ -47,17 +47,20 @@ public class UserController {
             );
         }
 
+        String token = userService.userTokenValidation(user);
 
-        if (!userService.userAuthorization(user, targetUser)) {
+        if (token == null) {
             return ResponseBody.error(
                     400,
-                    "Incorrect password."
+                    "Incorrect password.",
+                    token
             );
         }
 
         return ResponseBody.success(
                 200,
-                "Login success"
+                "Login success",
+                token
         );
     }
 

@@ -12,4 +12,5 @@ public interface UserService {
     public User getUser(User usr);
     public List<User> getAllUsers();
     public boolean userAuthorization(User user, User targetUser);
+    public String userTokenValidation(User user);
 }

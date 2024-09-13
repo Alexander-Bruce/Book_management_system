@@ -10,6 +10,8 @@ spring:
     configuration:
       log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+mode: PROD
+
 logging:
   file:
     name: log/log.log

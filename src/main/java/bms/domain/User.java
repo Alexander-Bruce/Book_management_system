@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 public class User{
     private Integer id;
-    private String uuid;
+    private Integer type;
     private String username;
     private String surname;
     private String password;
@@ -21,4 +21,5 @@ public class User{
     private String imageUrl;
     private LocalDateTime updatedTime;
     private LocalDateTime createdTime;
+    private Boolean isDeleted;
 }

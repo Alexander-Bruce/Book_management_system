@@ -7,6 +7,7 @@
 <mapper namespace="bms.mapper.UserMapper">
     <resultMap id="resultUser" type="bms.domain.User">
         <result column="user_name" property="username" />
+        <result column="user_type" property="type" />
         <result column="user_password" property="password" />
         <result column="image_url" property="imageUrl" />
         <result column="updated_time" property="updatedTime" />
@@ -20,12 +21,13 @@
             <if test="id != null">
                 and id = #{id}
             </if>
-            <if test="uuid != null">
-                and uuid = #{uuid}
+            <if test="type != null">
+                and user_type = #{type}
             </if>
             <if test="username != null and username != ''">
                 and user_name = #{username}
             </if>
+            and isDeleted != 1
         </where>;
     </select>
 
@@ -35,16 +37,46 @@
     </select>
 
 <!--    delete user by id-->
-    <delete id="deleteUser">
-        delete from user
-        where id = #{id}
-    </delete>
+    <update id="deleteUser">
+        update user
+        <set>
+            isDeleted = 1,
+        </set>
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="username != null and username != ''">
+                and user_name = #{username}
+            </if>
+            and isDeleted == 0
+        </where>
+    </update>
+
+<!--    recovery user's account-->
+    <update id="recoveryUser">
+        update user
+        <set>
+            isDeleted = 0,
+        </set>
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="username != null and username != ''">
+                and user_name = #{username}
+            </if>
+            and isDeleted == 1
+        </where>
+    </update>
 
 <!--    add user by told information-->
     <insert id="addUser">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            uuid,
+            <if test="type != null">
+                user_type,
+            </if>
             <if test="username != null and username != ''">
                 user_name,
             </if>
@@ -64,7 +96,9 @@
         </trim>
 
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            #{uuid},
+            <if test="type != null">
+                user_type = #{type},
+            </if>
             <if test="username != null and username != ''">
                 #{username},
             </if>
@@ -86,27 +120,40 @@
 
 
     <!--    update user's data-->
+    <!-- Update user's data -->
     <update id="updateUser">
         update user
         <set>
-            <if test="username != null and username != ''">
-                user_name = #{username},
+            <if test="user.type != null">
+                user_type = #{user.type},
             </if>
-            <if test="surname != null and surname != ''">
-                surname = #{surname},
+            <if test="user.username != null and user.username != ''">
+                user_name = #{user.username},
             </if>
-            <if test="password != null and password != ''">
-                user_password = #{password},
+            <if test="user.surname != null and user.surname != ''">
+                surname = #{user.surname},
             </if>
-            <if test="email !=  null and email != ''">
-                email = #{email},
+            <if test="user.password != null and user.password != ''">
+                user_password = #{user.password},
             </if>
-            <if test="imageUrl != null and imageUrl != ''">
-                image_url = #{imageUrl},
+            <if test="user.email != null and user.email != ''">
+                email = #{user.email},
             </if>
-                updated_time = CURRENT_TIMESTAMP(),
+            <if test="user.imageUrl != null and user.imageUrl != ''">
+                image_url = #{user.imageUrl},
+            </if>
+            updated_time = CURRENT_TIMESTAMP()
         </set>
-        where id = #{id}
+        <where>
+            <if test="targetUser.id != null">
+                and id = #{targetUser.id}
+            </if>
+            <if test="targetUser.username != null and targetUser.username != ''">
+                and user_name = #{targetUser.username}
+            </if>
+            and isDeleted = 0
+        </where>
     </update>
+
 
 </mapper>

@@ -15,7 +15,7 @@ public interface UserMapper {
     public int deleteUser(int id);
 
     @Transactional
-    public int updateUser(User user);
+    public boolean updateUser(User targetUser, User user);
 
     @Transactional
     public User getUser(User user);

@@ -1,6 +1,5 @@
 package bms.config.security.service;
 
-import bms.exception.JwtAuthenticationException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -58,7 +57,7 @@ public class JWTService {
         try {
             return extractClaim(token, Claims::getSubject);
         } catch (Exception e) {
-            throw new JwtAuthenticationException("Invalid JWT token");
+            throw new RuntimeException("Invalid JWT token");
         }
     }
 
@@ -75,7 +74,7 @@ public class JWTService {
                     .parseSignedClaims(token)
                     .getPayload();
         }catch (Exception e) {
-            throw new JwtAuthenticationException("Invalid JWT token");
+            throw new RuntimeException("Invalid JWT token");
         }
 
     }

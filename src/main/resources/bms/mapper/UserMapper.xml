@@ -20,7 +20,7 @@
             <if test="id != null">
                 and id = #{id}
             </if>
-            <if test="id != null">
+            <if test="uuid != null">
                 and uuid = #{uuid}
             </if>
             <if test="username != null and username != ''">

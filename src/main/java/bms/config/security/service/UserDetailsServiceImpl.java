@@ -24,4 +24,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return new UserPrincipal(user);
     }
+
+    public UserPrincipal loadUserById(Integer id) {
+        User user = userMapper.getUser(User.builder().id(id).build());
+
+        if(user == null)
+            throw new UsernameNotFoundException("user not found");
+
+        return new UserPrincipal(user);
+    }
 }

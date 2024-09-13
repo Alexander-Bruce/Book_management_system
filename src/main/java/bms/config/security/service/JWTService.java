@@ -1,48 +1,96 @@
 package bms.config.security.service;
 
-import bms.domain.User;
+import bms.exception.JwtAuthenticationException;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.security.Key;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 
 @Service
 public class JWTService {
 
-    private String secretKey = "d46fbe2773521b3c561ac9fddf79e33391bb9b21d09eb9f343b3bea412c19921c28b5606c904202aa4ef045c616057aa8d2a0ec17fe500bcd23f73f997c3da0c052d748877b5f93f0fd149deac199ab80af38b88a1ff533f498028bb7246ee263334a8db2db9de082f825d016affc2c1c6117edc8b659bfec667d456cfaaf6d053259f64f9b046374f145c0c3e7978b541d4ce11bcef54dd07d432fefd9fa4b3548eb35f100c3b26fcb0560e3a71fa0e739a1a4b82ab37a45ca1b3a95cb59ff6ae9b507e50d2b8e7e59bdd63929ad6af6db6a24a977e952851e483a668dbf6f007f8b7bf5522c4a5fc168231886c1ea02a6ffef9ed4b3a03c074c3131ef7e08b";
 
-    public String generateToken(User user) {
+    private String secretkey = "";
 
+    public JWTService() {
+
+        try {
+            KeyGenerator keyGen = KeyGenerator.getInstance("HmacSHA256");
+            SecretKey sk = keyGen.generateKey();
+            secretkey = Base64.getEncoder().encodeToString(sk.getEncoded());
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String generateToken(String username) {
         Map<String, Object> claims = new HashMap<>();
-
         return Jwts.builder()
                 .claims()
                 .add(claims)
-                .subject(user.getUsername())
+                .subject(username)
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))
                 .and()
-                .signWith(generateKey())
+                .signWith(getKey())
                 .compact();
 
     }
 
-    private Key generateKey(){
-        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+    private SecretKey getKey() {
+        byte[] keyBytes = Decoders.BASE64.decode(secretkey);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public boolean validateToken(String username, UserDetails userDetails) {
-        return true;
+    public String extractUserName(String token){
+        // extract the username from jwt token
+        try {
+            return extractClaim(token, Claims::getSubject);
+        } catch (Exception e) {
+            throw new JwtAuthenticationException("Invalid JWT token");
+        }
     }
 
-    public String extractUsername(String token) {
-        return "苑帅";
+    private <T> T extractClaim(String token, Function<Claims, T> claimResolver){
+        final Claims claims = extractAllClaims(token);
+        return claimResolver.apply(claims);
     }
+
+    private Claims extractAllClaims(String token){
+        try {
+            return Jwts.parser()
+                    .verifyWith(getKey())
+                    .build()
+                    .parseSignedClaims(token)
+                    .getPayload();
+        }catch (Exception e) {
+            throw new JwtAuthenticationException("Invalid JWT token");
+        }
+
+    }
+
+    public boolean validateToken(String token, UserDetails userDetails){
+        final String userName = extractUserName(token);
+        return (userName.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+
+    private boolean isTokenExpired(String token){
+        return extractExpiration(token).before(new Date());
+    }
+
+    private Date extractExpiration(String token){
+        return extractClaim(token, Claims::getExpiration);
+    }
+
 }

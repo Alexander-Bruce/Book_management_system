@@ -4,6 +4,8 @@ import bms.domain.ResponseBody;
 import bms.domain.User;
 import bms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,7 +66,27 @@ public class UserController {
         );
     }
 
-    @GetMapping("user/delete")
+    @GetMapping("user/profile")
+    public ResponseBody userProfile() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication != null && authentication.getPrincipal() instanceof User) {
+            User user = (User) authentication.getPrincipal();
+            return ResponseBody.success(
+                    200,
+                    "Upload profile success",
+                    user
+            );
+        }
+
+        return ResponseBody.error(
+                400,
+                "Can't load profile"
+        );
+
+    }
+
+    @PostMapping("user/delete")
     public ResponseBody delete(User user) {
         User targetUser = userService.getUser(user);
 
@@ -84,7 +106,7 @@ public class UserController {
         );
     }
 
-    @GetMapping("user/update")
+    @PostMapping("user/update")
     public ResponseBody update(User user) {
         User targetUser = userService.getUser(user);
 
@@ -104,7 +126,7 @@ public class UserController {
         );
     }
 
-    @GetMapping("user/admin/userlist")
+    @PostMapping("user/admin/userlist")
     public ResponseBody getUserList() {
 
         return ResponseBody.success(
@@ -114,7 +136,7 @@ public class UserController {
         );
     }
 
-   @GetMapping("user/self")
+   @PostMapping("user/self")
    public ResponseBody getUser(User user) {
 
         return ResponseBody.success(

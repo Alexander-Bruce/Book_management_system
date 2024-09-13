@@ -18,6 +18,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userMapper.getUser(User.builder().username(username).build());
+        userMapper.updateUser(user);
 
         if (user == null)
             throw new UsernameNotFoundException("user not found");

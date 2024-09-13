@@ -1,5 +1,6 @@
 package bms.controller;
 
+import bms.config.security.model.UserPrincipal;
 import bms.domain.ResponseBody;
 import bms.domain.User;
 import bms.service.UserService;
@@ -70,8 +71,8 @@ public class UserController {
     public ResponseBody userProfile() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if(authentication != null && authentication.getPrincipal() instanceof User) {
-            User user = (User) authentication.getPrincipal();
+        if(authentication != null && authentication.getPrincipal() instanceof UserPrincipal) {
+            User user = ((UserPrincipal) authentication.getPrincipal()).getUser();
             return ResponseBody.success(
                     200,
                     "Upload profile success",

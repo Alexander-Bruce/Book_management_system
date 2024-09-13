@@ -5988,3 +5988,136 @@ bms.exception.JwtAuthenticationException: Invalid JWT token
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
 	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
 
+2024-09-13T17:05:54.555+08:00  INFO 27456 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 27456 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-13T17:05:54.556+08:00  INFO 27456 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-13T17:05:55.065+08:00  INFO 27456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-13T17:05:55.071+08:00  INFO 27456 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-13T17:05:55.071+08:00  INFO 27456 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-13T17:05:55.098+08:00  INFO 27456 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-13T17:05:55.098+08:00  INFO 27456 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 514 ms
+2024-09-13T17:05:55.283+08:00  INFO 27456 --- [main] eAuthenticationProviderManagerConfigurer : Found 2 AuthenticationProvider beans, with names [customAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2024-09-13T17:05:55.284+08:00  INFO 27456 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-09-13T17:05:55.484+08:00  INFO 27456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-13T17:05:55.489+08:00  INFO 27456 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.145 seconds (process running for 1.423)
+2024-09-13T17:05:59.416+08:00  INFO 27456 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-13T17:05:59.416+08:00  INFO 27456 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-13T17:05:59.417+08:00  INFO 27456 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-09-13T17:05:59.477+08:00  INFO 27456 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-13T17:05:59.629+08:00  INFO 27456 --- [http-nio-8080-exec-3] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1f7decc0
+2024-09-13T17:05:59.630+08:00  INFO 27456 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-13T17:06:49.152+08:00  INFO 27456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-13T17:06:49.157+08:00  INFO 27456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-13T17:06:51.161+08:00  INFO 7236 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 7236 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-13T17:06:51.162+08:00  INFO 7236 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-13T17:06:51.655+08:00  INFO 7236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-13T17:06:51.662+08:00  INFO 7236 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-13T17:06:51.662+08:00  INFO 7236 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-13T17:06:51.688+08:00  INFO 7236 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-13T17:06:51.689+08:00  INFO 7236 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 499 ms
+2024-09-13T17:06:51.871+08:00  INFO 7236 --- [main] eAuthenticationProviderManagerConfigurer : Found 2 AuthenticationProvider beans, with names [customAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2024-09-13T17:06:51.872+08:00  INFO 7236 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-09-13T17:06:52.079+08:00  INFO 7236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-13T17:06:52.084+08:00  INFO 7236 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.14 seconds (process running for 1.422)
+2024-09-13T17:06:53.951+08:00  INFO 7236 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-13T17:06:53.952+08:00  INFO 7236 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-13T17:06:53.952+08:00  INFO 7236 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-09-13T17:06:54.008+08:00  INFO 7236 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-13T17:06:54.156+08:00  INFO 7236 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2dbea7d7
+2024-09-13T17:06:54.159+08:00  INFO 7236 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-13T17:07:46.323+08:00  INFO 7236 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-13T17:07:46.328+08:00  INFO 7236 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-13T17:07:48.323+08:00  INFO 23420 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 23420 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-13T17:07:48.324+08:00  INFO 23420 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-13T17:07:48.811+08:00  INFO 23420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-13T17:07:48.818+08:00  INFO 23420 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-13T17:07:48.818+08:00  INFO 23420 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-13T17:07:48.843+08:00  INFO 23420 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-13T17:07:48.843+08:00  INFO 23420 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 494 ms
+2024-09-13T17:07:49.018+08:00  INFO 23420 --- [main] eAuthenticationProviderManagerConfigurer : Found 2 AuthenticationProvider beans, with names [customAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2024-09-13T17:07:49.019+08:00  INFO 23420 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-09-13T17:07:49.232+08:00  INFO 23420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-13T17:07:49.236+08:00  INFO 23420 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.135 seconds (process running for 1.414)
+2024-09-13T17:07:53.527+08:00  INFO 23420 --- [http-nio-8080-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-13T17:07:53.527+08:00  INFO 23420 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-13T17:07:53.528+08:00  INFO 23420 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-09-13T17:07:53.581+08:00  INFO 23420 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-13T17:07:53.739+08:00  INFO 23420 --- [http-nio-8080-exec-5] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@54da07f0
+2024-09-13T17:07:53.741+08:00  INFO 23420 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-13T17:08:22.972+08:00  INFO 23420 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-13T17:08:22.976+08:00  INFO 23420 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-13T17:08:24.955+08:00  INFO 1392 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 1392 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-13T17:08:24.956+08:00  INFO 1392 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-13T17:08:25.455+08:00  INFO 1392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-13T17:08:25.463+08:00  INFO 1392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-13T17:08:25.463+08:00  INFO 1392 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-13T17:08:25.493+08:00  INFO 1392 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-13T17:08:25.494+08:00  INFO 1392 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 514 ms
+2024-09-13T17:08:25.665+08:00  INFO 1392 --- [main] eAuthenticationProviderManagerConfigurer : Found 2 AuthenticationProvider beans, with names [customAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2024-09-13T17:08:25.666+08:00  INFO 1392 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-09-13T17:08:25.880+08:00  INFO 1392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-13T17:08:25.884+08:00  INFO 1392 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.143 seconds (process running for 1.415)
+2024-09-13T17:08:29.628+08:00  INFO 1392 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-13T17:08:29.628+08:00  INFO 1392 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-13T17:08:29.629+08:00  INFO 1392 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-09-13T17:08:29.683+08:00  INFO 1392 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-13T17:08:29.831+08:00  INFO 1392 --- [http-nio-8080-exec-3] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b3726f2
+2024-09-13T17:08:29.832+08:00  INFO 1392 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-13T17:08:47.157+08:00  INFO 1392 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-13T17:08:47.161+08:00  INFO 1392 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-13T17:08:49.153+08:00  INFO 26116 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 26116 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-13T17:08:49.154+08:00  INFO 26116 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-13T17:08:49.651+08:00  INFO 26116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-13T17:08:49.658+08:00  INFO 26116 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-13T17:08:49.659+08:00  INFO 26116 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-13T17:08:49.692+08:00  INFO 26116 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-13T17:08:49.692+08:00  INFO 26116 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 516 ms
+2024-09-13T17:08:49.866+08:00  INFO 26116 --- [main] eAuthenticationProviderManagerConfigurer : Found 2 AuthenticationProvider beans, with names [customAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2024-09-13T17:08:49.867+08:00  INFO 26116 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-09-13T17:08:50.082+08:00  INFO 26116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-13T17:08:50.087+08:00  INFO 26116 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.147 seconds (process running for 1.415)
+2024-09-13T17:08:51.857+08:00  INFO 26116 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-13T17:08:51.858+08:00  INFO 26116 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-13T17:08:51.858+08:00  INFO 26116 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-09-13T17:08:51.914+08:00  INFO 26116 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-13T17:08:52.064+08:00  INFO 26116 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@662b591e
+2024-09-13T17:08:52.068+08:00  INFO 26116 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-13T17:12:08.523+08:00  INFO 26116 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-13T17:12:08.527+08:00  INFO 26116 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-13T17:12:10.445+08:00  INFO 25296 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 25296 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-13T17:12:10.446+08:00  INFO 25296 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-13T17:12:10.940+08:00  INFO 25296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-13T17:12:10.947+08:00  INFO 25296 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-13T17:12:10.947+08:00  INFO 25296 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-13T17:12:10.971+08:00  INFO 25296 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-13T17:12:10.971+08:00  INFO 25296 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 501 ms
+2024-09-13T17:12:11.147+08:00  INFO 25296 --- [main] eAuthenticationProviderManagerConfigurer : Found 2 AuthenticationProvider beans, with names [customAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2024-09-13T17:12:11.148+08:00  INFO 25296 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-09-13T17:12:11.358+08:00  INFO 25296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-13T17:12:11.362+08:00  INFO 25296 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.163 seconds (process running for 1.445)
+2024-09-13T17:12:19.674+08:00  INFO 25296 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-13T17:12:19.674+08:00  INFO 25296 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-13T17:12:19.675+08:00  INFO 25296 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-09-13T17:12:19.737+08:00  INFO 25296 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-13T17:12:19.902+08:00  INFO 25296 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@35b8f8f5
+2024-09-13T17:12:19.904+08:00  INFO 25296 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-13T17:12:37.086+08:00  INFO 25296 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-13T17:12:37.090+08:00  INFO 25296 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-13T17:13:09.168+08:00  INFO 25540 --- [main] bms.BookManagementSystemApplication      : Starting BookManagementSystemApplication using Java 22.0.2 with PID 25540 (D:\Project_Archive\Java_web_project\Book_management_system\target\classes started by qingl in D:\Project_Archive\Java_web_project\Book_management_system)
+2024-09-13T17:13:09.169+08:00  INFO 25540 --- [main] bms.BookManagementSystemApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-09-13T17:13:09.676+08:00  INFO 25540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-13T17:13:09.684+08:00  INFO 25540 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-13T17:13:09.684+08:00  INFO 25540 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-13T17:13:09.710+08:00  INFO 25540 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-13T17:13:09.710+08:00  INFO 25540 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 516 ms
+2024-09-13T17:13:09.890+08:00  INFO 25540 --- [main] eAuthenticationProviderManagerConfigurer : Found 2 AuthenticationProvider beans, with names [customAuthenticationProvider, authenticationProvider]. Global Authentication Manager will not be configured with AuthenticationProviders. Consider publishing a single AuthenticationProvider bean, or wiring your Providers directly using the DSL.
+2024-09-13T17:13:09.890+08:00  INFO 25540 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-09-13T17:13:10.104+08:00  INFO 25540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-13T17:13:10.108+08:00  INFO 25540 --- [main] bms.BookManagementSystemApplication      : Started BookManagementSystemApplication in 1.158 seconds (process running for 1.436)
+2024-09-13T17:13:12.360+08:00  INFO 25540 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-13T17:13:12.360+08:00  INFO 25540 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-13T17:13:12.361+08:00  INFO 25540 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-09-13T17:13:12.416+08:00  INFO 25540 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-13T17:13:12.562+08:00  INFO 25540 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64e389bf
+2024-09-13T17:13:12.563+08:00  INFO 25540 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-13T17:13:21.326+08:00  INFO 25540 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-13T17:13:21.333+08:00  INFO 25540 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -17,57 +17,59 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserMapper userMapper;
+	@Autowired
+	private UserMapper userMapper;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+	@Autowired
+	private AuthenticationManager authenticationManager;
 
-    @Autowired
-    private JWTService jwtService;
+	@Autowired
+	private JWTService jwtService;
 
-    @Override
-    public int addUser(User user){
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userMapper.addUser(user);
-    }
+	@Override
+	public int addUser(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		return userMapper.addUser(user);
+	}
 
-    @Override
-    public int deleteUser(int id){
-        return userMapper.deleteUser(id);
-    }
+	@Override
+	public int deleteUser(int id) {
+		return userMapper.deleteUser(id);
+	}
 
-    @Override
-    public boolean updateUser(User targetUser, User user){
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userMapper.updateUser(targetUser, user);
-    }
-    @Override
-    public User getUser(User user){
-        return userMapper.getUser(user);
-    }
+	@Override
+	public boolean updateUser(User targetUser, User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		return userMapper.updateUser(targetUser, user);
+	}
 
-    @Override
-    public List<User> getAllUsers(){
-        return userMapper.getAllUsers();
-    }
+	@Override
+	public User getUser(User user) {
+		return userMapper.getUser(user);
+	}
 
-    @Override
-    public boolean userAuthorization(User user, User targetUser){
-        return passwordEncoder.matches(user.getPassword(), targetUser.getPassword());
-    }
+	@Override
+	public List<User> getAllUsers() {
+		return userMapper.getAllUsers();
+	}
 
-    @Override
-    public String userTokenValidation(User user) throws BadCredentialsException{
-        Authentication authentication =
-                authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+	@Override
+	public boolean userAuthorization(User user, User targetUser) {
+		return passwordEncoder.matches(user.getPassword(), targetUser.getPassword());
+	}
 
-        if(authentication.isAuthenticated())
-            return jwtService.generateToken(user.getUsername());
+	@Override
+	public String userTokenValidation(User user) throws BadCredentialsException {
+		Authentication authentication = authenticationManager
+			.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
-        return null;
-    }
+		if (authentication.isAuthenticated())
+			return jwtService.generateToken(user.getUsername());
+
+		return null;
+	}
+
 }

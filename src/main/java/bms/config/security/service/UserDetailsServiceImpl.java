@@ -12,26 +12,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
-    private UserMapper userMapper;
+	@Autowired
+	private UserMapper userMapper;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userMapper.getUser(User.builder().username(username).build());
-        userMapper.updateUser(user, user);
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userMapper.getUser(User.builder().username(username).build());
 
-        if (user == null)
-            throw new UsernameNotFoundException("user not found");
+		if (user == null)
+			throw new UsernameNotFoundException("User not found");
 
-        return new UserPrincipal(user);
-    }
+		return new UserPrincipal(user);
+	}
 
-    public UserPrincipal loadUserById(Integer id) {
-        User user = userMapper.getUser(User.builder().id(id).build());
+	public UserPrincipal loadUserById(Integer id) {
+		User user = userMapper.getUser(User.builder().id(id).build());
 
-        if(user == null)
-            throw new UsernameNotFoundException("User not found");
+		if (user == null)
+			throw new UsernameNotFoundException("User not found");
 
-        return new UserPrincipal(user);
-    }
+		return new UserPrincipal(user);
+	}
+
 }

@@ -11,19 +11,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("bms.mapper")
 public class BookManagementSystemApplication {
-    @Autowired
-    private UserService userService;
 
-    public static void main(String[] args) {
-        SpringApplication.run(BookManagementSystemApplication.class, args);
-    }
+	@Autowired
+	private UserService userService;
 
-//    @Override
-//    public void run(String... args) throws Exception {
-//        User user = User.builder()
-//                .id(10)
-//                .surname("Alexander")
-//                .build();
-//        System.out.println(userService.updateUser(user));
-//    }
+	public static void main(String[] args) {
+		SpringApplication.run(BookManagementSystemApplication.class, args);
+	}
+
+	// @Override
+	// public void run(String... args) throws Exception {
+	// User user = User.builder()
+	// .id(10)
+	// .surname("Alexander")
+	// .build();
+	// System.out.println(userService.updateUser(user));
+	// }
+
 }

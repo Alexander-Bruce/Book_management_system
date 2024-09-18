@@ -8,19 +8,20 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    @Transactional
-    public int addUser(User user);
 
-    @Transactional
-    public int deleteUser(int id);
+	@Transactional
+	public int addUser(User user);
 
-    @Transactional
-    public boolean updateUser(User targetUser, User user);
+	@Transactional
+	public int deleteUser(int id);
 
-    @Transactional
-    public User getUser(User user);
+	@Transactional
+	public boolean updateUser(User targetUser, User user);
 
-    @Transactional
-    public List<User> getAllUsers();
+	@Transactional
+	public User getUser(User user);
+
+	@Transactional
+	public List<User> getAllUsers();
 
 }

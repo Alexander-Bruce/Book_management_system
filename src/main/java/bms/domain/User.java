@@ -1,9 +1,8 @@
 package bms.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -11,15 +10,31 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User{
-    private Integer id;
-    private Integer type;
-    private String username;
-    private String surname;
-    private String password;
-    private String email;
-    private String imageUrl;
-    private LocalDateTime updatedTime;
-    private LocalDateTime createdTime;
-    private Boolean isDeleted;
+public class User {
+
+	@NonNull
+	private Integer id;
+
+	private Integer type;
+
+	@NotEmpty
+	private String username;
+
+	@NotEmpty
+	private String surname;
+
+	@NotEmpty
+	private String password;
+
+	@Email
+	private String email;
+
+	private String imageUrl;
+
+	private LocalDateTime updatedTime;
+
+	private LocalDateTime createdTime;
+
+	private Boolean isDeleted;
+
 }

@@ -119,7 +119,6 @@
     </insert>
 
 
-    <!--    update user's data-->
     <!-- Update user's data -->
     <update id="updateUser">
         update user

@@ -1,9 +1,11 @@
 package bms.service.impl;
 
+import bms.config.security.service.EmailVerificationService;
 import bms.config.security.service.JWTService;
 import bms.domain.User;
 import bms.mapper.UserMapper;
 import bms.service.UserService;
+import bms.utils.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -11,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -29,10 +32,19 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private JWTService jwtService;
 
+	@Autowired
+	private EmailVerificationService emailVerificationService;
+
 	@Override
 	public int addUser(User user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		return userMapper.addUser(user);
+		Integer code = userMapper.addUser(user);
+		try {
+			emailVerificationService.sendVerificationEmail(user.getUsername(), user.getEmail());
+		}catch (Exception e){
+			code = 1;
+		}
+		return code;
 	}
 
 	@Override
@@ -44,6 +56,16 @@ public class UserServiceImpl implements UserService {
 	public boolean updateUser(User targetUser, User user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userMapper.updateUser(targetUser, user);
+	}
+
+	@Override
+	public Integer updateUserPassword(User targetUser, User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		if (StringUtils.hasLength(user.getPassword()) && user.getPassword().equals(targetUser.getPassword())) {
+			updateUser(targetUser, user);
+			return StatusCode.OK;
+		}
+		return StatusCode.CONFLICT;
 	}
 
 	@Override

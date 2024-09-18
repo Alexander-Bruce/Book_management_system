@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bms.mapper.BookMapper">
+    <resultMap id="resultBook" type="bms.domain.Book">
+        <result column="book_name" property="bookName" />
+        <result column="book_alias" property="bookAlias" />
+        <result column="book_description" property="bookDescription" />
+        <result column="category_type" property=" categoryType" />
+        <result column="category_name" property="categoryName" />
+        <result column="updated_time" property="updatedTime" />
+        <result column="created_time" property="createdTime" />
+    </resultMap>
+
+<!--    public void addBook(Book book);-->
+<!--    Insert a book to table-->
+    <insert id="addBook">
+        insert into book
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bookName != null and bookName != ' '">
+                book_name
+            </if>
+            <if test="bookAlias != null and bookAlias != ''">
+                book_alias,
+            </if>
+            <if test="bookDescription != null and bookDescription != ''">
+                book_description,
+            </if>
+            <if test="categoryType != null">
+                category_type,
+            </if>
+            <if test="categoryName != null and categoryName != ''">
+                category_name,
+            </if>
+            updated_time,
+            created_time,
+        </trim>
+
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="bookName != null and bookName != ' '">
+                #{bookName},
+            </if>
+            <if test="bookAlias != null and bookAlias != ''">
+                #{bookAlias},
+            </if>
+            <if test="bookDescription != null and bookDescription != ''">
+                #{bookDescription},
+            </if>
+            <if test="categoryType != null">
+                #{categoryType},
+            </if>
+            <if test="categoryName != null and categoryName != ''">
+                #{categoryName},
+            </if>
+            CURRENT_TIMESTAMP(),
+            CURRENT_TIMESTAMP(),
+        </trim>
+    </insert>
+
+<!--    public List<Book> getBooks();-->
+<!--    Get all books-->
+    <select id="getBooks" resultMap="resultBook">
+        select * from book;
+    </select>
+
+<!--    public Book getBookById(Book book);-->
+<!--    Get book by id-->
+    <select id="getBookById" resultMap="resultBook">
+        select * from book
+        <where>
+            id = #{id}
+        </where>
+    </select>
+
+<!--    public List<Book> getBooksByFeatures(Book book);-->
+<!--    Get books who are similar to the requirements-->
+    <select id="getBooksByFeatures" resultMap="resultBook">
+        select * from book
+        <where>
+            <if test="author != null and author != ' '">
+                and author like #{author},
+            </if>
+            <if test="bookName != null and bookName != ' '">
+                and book_name like #{bookName},
+            </if>
+            <if test="bookAlias != null and bookAlias != ''">
+                and bookAlias like #{bookAlias},
+            </if>
+            <if test="bookDescription != null and bookDescription != ''">
+                and book_description like #{bookDescription},
+            </if>
+            <if test="categoryType != null">
+                and category_type = #{categoryType},
+            </if>
+            <if test="categoryName != null and categoryName != ''">
+                and category_name like #{categoryName},
+            </if>
+        </where>
+    </select>
+
+<!--    public void updateBook(Book book);-->
+<!--    Update book -->
+    <update id="updateBook">
+        update user
+        <set>
+            <if test="author != null and author != ' '">
+                author = #{author},
+            </if>
+            <if test="bookName != null and bookName != ' '">
+                book_name = #{bookName},
+            </if>
+            <if test="bookAlias != null and bookAlias != ''">
+                bookAlias = #{bookAlias},
+            </if>
+            <if test="bookDescription != null and bookDescription != ''">
+                book_description = #{bookDescription},
+            </if>
+            <if test="categoryType != null">
+                category_type = #{categoryType},
+            </if>
+            <if test="categoryName != null and categoryName != ''">
+                category_name = #{categoryName},
+            </if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+<!--    public void deleteBook(Book book);-->
+<!--    Delete book by id-->
+    <delete id="deleteBook">
+        delete from book
+        where id = #{id};
+    </delete>
+
+</mapper>

@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @Builder
 public class User {
 
-	@NonNull
 	private Integer id;
 
 	private Integer type;
@@ -20,10 +19,8 @@ public class User {
 	@NotEmpty
 	private String username;
 
-	@NotEmpty
 	private String surname;
 
-	@NotEmpty
 	private String password;
 
 	@Email

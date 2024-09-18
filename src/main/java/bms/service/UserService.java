@@ -20,4 +20,6 @@ public interface UserService {
 
 	public String userTokenValidation(User user);
 
+	public Integer updateUserPassword(User targetUser, User user);
+
 }

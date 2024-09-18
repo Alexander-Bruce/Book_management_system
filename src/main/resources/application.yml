@@ -9,6 +9,26 @@ spring:
     type-aliases-package: bms.domain
     configuration:
       log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: alexanderbruce044@gmail.com
+    password: ngwmvmwylbqavmzr
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            trust: smtp.gmail.com
+
+jwt:
+  key: VHJ1c3R3b3JrT3BhZHVzJTIwU2VjdXJlU2VjcmV0Q29tcGxleEJ0b2xkY29tcGxleENvbmZpZyUyMExhcmdlU2VjcmV0S2V5
 
 mode: PROD
 

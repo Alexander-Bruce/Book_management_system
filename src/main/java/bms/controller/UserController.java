@@ -8,7 +8,6 @@ import bms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -116,12 +115,9 @@ public class UserController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
 		if (authentication != null && authentication.getPrincipal() instanceof UserPrincipal) {
-			if (StringUtils.hasLength(user.getPassword())
-					&& user.getPassword().equals(userService.getUser(user).getPassword())) {
-				User targetUser = ((UserPrincipal) authentication.getPrincipal()).getUser();
-				if (userService.updateUser(targetUser, user)) {
-					return ResponseBody.success(StatusCode.OK, "Update user's image success");
-				}
+			User targetUser = ((UserPrincipal) authentication.getPrincipal()).getUser();
+			if (userService.updateUserPassword(targetUser, user) == StatusCode.OK) {
+				return ResponseBody.success(StatusCode.OK, "Update user's image success");
 			}
 			else {
 				return ResponseBody.error(StatusCode.CONFLICT,
@@ -129,7 +125,7 @@ public class UserController {
 			}
 		}
 
-		return ResponseBody.error(StatusCode.BAD_REQUEST, "Cannot modify user's image");
+		return ResponseBody.error(StatusCode.BAD_REQUEST, "Cannot modify user's password");
 
 	}
 

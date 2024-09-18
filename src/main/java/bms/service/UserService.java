@@ -6,20 +6,20 @@ import java.util.List;
 
 public interface UserService {
 
-	public int addUser(User user);
+	int addUser(User user);
 
-	public int deleteUser(int id);
+	int deleteUser(int id);
 
-	public boolean updateUser(User targetUser, User user);
+	boolean updateUser(User targetUser, User user);
 
-	public User getUser(User usr);
+	User getUser(User usr);
 
-	public List<User> getAllUsers();
+	List<User> getAllUsers();
 
-	public boolean userAuthorization(User user, User targetUser);
+	boolean userAuthorization(User user, User targetUser);
 
-	public String userTokenValidation(User user);
+	String userTokenValidation(User user);
 
-	public Integer updateUserPassword(User targetUser, User user);
+	Integer updateUserPassword(User targetUser, User user);
 
 }

@@ -41,7 +41,8 @@ public class UserServiceImpl implements UserService {
 		Integer code = userMapper.addUser(user);
 		try {
 			emailVerificationService.sendVerificationEmail(user.getUsername(), user.getEmail());
-		}catch (Exception e){
+		}
+		catch (Exception e) {
 			code = 1;
 		}
 		return code;

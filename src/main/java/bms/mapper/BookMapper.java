@@ -7,10 +7,17 @@ import java.util.List;
 
 @Mapper
 public interface BookMapper {
-    Book addBook(Book book);
-    List<Book> getBooks();
-    Book getBookById(Book book);
-    List<Book> getBooksByFeatures(Book book);
-    Book updateBook(Book book);
-    Boolean deleteBook(Book book);
+
+	Book addBook(Book book);
+
+	List<Book> getBooks();
+
+	Book getBookById(Book book);
+
+	List<Book> getBooksByFeatures(Book book);
+
+	Book updateBook(Book book);
+
+	Boolean deleteBook(Book book);
+
 }

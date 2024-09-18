@@ -20,17 +20,17 @@ public class JWTService {
 	@Value("${jwt.key}")
 	private String secretkey;
 
-//	public JWTService() {
-//
-//		try {
-//			KeyGenerator keyGen = KeyGenerator.getInstance("HmacSHA256");
-//			SecretKey sk = keyGen.generateKey();
-//			secretkey = Base64.getEncoder().encodeToString(sk.getEncoded());
-//		}
-//		catch (NoSuchAlgorithmException e) {
-//			throw new RuntimeException(e);
-//		}
-//	}
+	// public JWTService() {
+	//
+	// try {
+	// KeyGenerator keyGen = KeyGenerator.getInstance("HmacSHA256");
+	// SecretKey sk = keyGen.generateKey();
+	// secretkey = Base64.getEncoder().encodeToString(sk.getEncoded());
+	// }
+	// catch (NoSuchAlgorithmException e) {
+	// throw new RuntimeException(e);
+	// }
+	// }
 
 	public String generateToken(String username) {
 		Map<String, Object> claims = new HashMap<>();

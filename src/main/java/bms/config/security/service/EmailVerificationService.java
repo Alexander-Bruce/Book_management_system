@@ -17,65 +17,68 @@ import java.nio.file.Files;
 
 @Service
 public class EmailVerificationService {
-    @Autowired
-    private JWTService jwtService;
 
-    @Autowired
-    private JavaMailSender javaMailSender;
+	@Autowired
+	private JWTService jwtService;
 
-    @Autowired
-    ApplicationContext context;
+	@Autowired
+	private JavaMailSender javaMailSender;
 
-    @Value("${spring.mail.username}")
-    private String from;
+	@Autowired
+	ApplicationContext context;
 
-    @Value("${spring.mail.password}")
-    private String password;
+	@Value("${spring.mail.username}")
+	private String from;
 
-    @Value("classpath:static/smtp_html.html")
-    private Resource smtpHtmlResource;
+	@Value("${spring.mail.password}")
+	private String password;
 
-    private String generateVerificationToken(String username) {
-        return jwtService.generateToken(username);
-    }
+	@Value("classpath:static/smtp_html.html")
+	private Resource smtpHtmlResource;
 
-    private void sendHtmlMessage(String to, String subject, String token) throws MessagingException, IOException {
-        // Load HTML content
-        String htmlContent = new String(Files.readAllBytes(smtpHtmlResource.getFile().toPath()), StandardCharsets.UTF_8);
-        token = URLEncoder.encode(token, StandardCharsets.UTF_8.toString());
+	private String generateVerificationToken(String username) {
+		return jwtService.generateToken(username);
+	}
 
-        // Replace placeholder
-        htmlContent = htmlContent.replace("your-verification-token", token);
+	private void sendHtmlMessage(String to, String subject, String token) throws MessagingException, IOException {
+		// Load HTML content
+		String htmlContent = new String(Files.readAllBytes(smtpHtmlResource.getFile().toPath()),
+				StandardCharsets.UTF_8);
+		token = URLEncoder.encode(token, StandardCharsets.UTF_8.toString());
 
-        // Send email
-        MimeMessage message = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setTo(to);
-        helper.setSubject(subject);
-        helper.setText(htmlContent, true);  // true indicates HTML content
-        helper.setFrom(from);
+		// Replace placeholder
+		htmlContent = htmlContent.replace("your-verification-token", token);
 
-        javaMailSender.send(message);
-    }
+		// Send email
+		MimeMessage message = javaMailSender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(message, true);
+		helper.setTo(to);
+		helper.setSubject(subject);
+		helper.setText(htmlContent, true); // true indicates HTML content
+		helper.setFrom(from);
 
+		javaMailSender.send(message);
+	}
 
-    public void sendVerificationEmail(String username, String to) throws MessagingException, IOException {
-        String token = generateVerificationToken(username);
+	public void sendVerificationEmail(String username, String to) throws MessagingException, IOException {
+		String token = generateVerificationToken(username);
 
-        String subject = "Email Verification";
+		String subject = "Email Verification";
 
-        sendHtmlMessage(to, subject, token);
-    }
+		sendHtmlMessage(to, subject, token);
+	}
 
-    public boolean verifyToken(String token) {
-        String username;
-        try {
-            username = jwtService.extractUserName(token);
-            if(username != null && context.getBean(UserDetailsServiceImpl.class).loadUserByUsername(username) != null)
-                return true;
-        }catch (Exception e) {
-            return false;
-        }
-        return true;
-    }
+	public boolean verifyToken(String token) {
+		String username;
+		try {
+			username = jwtService.extractUserName(token);
+			if (username != null && context.getBean(UserDetailsServiceImpl.class).loadUserByUsername(username) != null)
+				return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+
 }

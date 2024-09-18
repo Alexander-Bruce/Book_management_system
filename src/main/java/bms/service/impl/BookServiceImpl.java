@@ -13,43 +13,45 @@ import java.util.List;
 
 @Service
 public class BookServiceImpl implements BookService {
-    @Autowired
-    private BookMapper bookMapper;
 
-    @Override
-    public Book addBook(Book book) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	@Autowired
+	private BookMapper bookMapper;
 
-        if (authentication != null && authentication.getPrincipal() instanceof UserPrincipal) {
-           book.setCreatedUser(((UserPrincipal) authentication.getPrincipal()).getUser().getId());
-           return bookMapper.addBook(book);
-        }
+	@Override
+	public Book addBook(Book book) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        return null;
-    }
+		if (authentication != null && authentication.getPrincipal() instanceof UserPrincipal) {
+			book.setCreatedUser(((UserPrincipal) authentication.getPrincipal()).getUser().getId());
+			return bookMapper.addBook(book);
+		}
 
-    @Override
-    public List<Book> getBooks() {
-        return bookMapper.getBooks();
-    }
+		return null;
+	}
 
-    @Override
-    public Book getBookById(Book book) {
-        return bookMapper.getBookById(book);
-    }
+	@Override
+	public List<Book> getBooks() {
+		return bookMapper.getBooks();
+	}
 
-    @Override
-    public List<Book> getBooksByFeatures(Book book) {
-        return bookMapper.getBooksByFeatures(book);
-    }
+	@Override
+	public Book getBookById(Book book) {
+		return bookMapper.getBookById(book);
+	}
 
-    @Override
-    public Book updateBook(Book book) {
-        return bookMapper.updateBook(book);
-    }
+	@Override
+	public List<Book> getBooksByFeatures(Book book) {
+		return bookMapper.getBooksByFeatures(book);
+	}
 
-    @Override
-    public Boolean deleteBook(Book book) {
-        return bookMapper.deleteBook(book);
-    }
+	@Override
+	public Book updateBook(Book book) {
+		return bookMapper.updateBook(book);
+	}
+
+	@Override
+	public Boolean deleteBook(Book book) {
+		return bookMapper.deleteBook(book);
+	}
+
 }

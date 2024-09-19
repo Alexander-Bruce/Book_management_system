@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verified - Success</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f6f8fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border: 1px solid #d1d5da;
+            padding: 30px;
+            text-align: center;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(27,31,35,0.12), 0 8px 24px rgba(27,31,35,0.12);
+        }
+        h1 {
+            color: #28a745;
+        }
+        p {
+            font-size: 16px;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .info {
+            margin-top: 10px;
+            color: #586069;
+            font-size: 14px;
+        }
+        .countdown {
+            font-weight: bold;
+            color: #24292e;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Success!</h1>
+    <p>Your email has been successfully verified.</p>
+    <p>You will be redirected to the user page in <span class="countdown" id="countdown">5</span> seconds, or you can close this page.</p>
+    <button class="button" onclick="closeWindow()">Close</button>
+    <p class="info" id="info"></p>
+</div>
+
+<script>
+    var countdownTime = 5;  // 5 seconds countdown
+    var countdownElement = document.getElementById("countdown");
+
+    var countdownInterval = setInterval(function() {
+        countdownTime--;
+        countdownElement.textContent = countdownTime;
+
+        if (countdownTime <= 0) {
+            clearInterval(countdownInterval);
+            window.location.href = '/';
+        }
+    }, 1000);
+
+    function closeWindow() {
+        window.close();
+        document.getElementById('info').innerHTML = "If the window does not close automatically, please close it manually.";
+    }
+</script>
+</body>
+</html>

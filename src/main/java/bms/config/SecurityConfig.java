@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -35,8 +36,8 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-		return http.csrf(customizer -> customizer.disable())
-			.authorizeHttpRequests(authz -> authz.requestMatchers("user/login", "user/register", "verify")
+		return http.csrf(AbstractHttpConfigurer::disable)
+			.authorizeHttpRequests(authz -> authz.requestMatchers("user/login", "user/register", "verify", "verify/resend")
 				.permitAll()
 				.anyRequest()
 				.authenticated())

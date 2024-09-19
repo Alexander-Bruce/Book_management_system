@@ -33,7 +33,7 @@ public class EmailVerificationService {
 	@Value("${spring.mail.password}")
 	private String password;
 
-	@Value("classpath:static/smtp_html.html")
+	@Value("classpath:templates/smtp_html.html")
 	private Resource smtpHtmlResource;
 
 	private String generateVerificationToken(String username) {

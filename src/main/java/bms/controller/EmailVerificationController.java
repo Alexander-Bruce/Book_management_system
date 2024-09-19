@@ -22,7 +22,8 @@ public class EmailVerificationController {
 	public ModelAndView verifyEmail(@RequestParam("token") String token) {
 		try {
 			token = URLDecoder.decode(token, StandardCharsets.UTF_8);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 			ModelAndView errorView = new ModelAndView("failure");
 			errorView.addObject("message", "Token decoding error!");
@@ -34,7 +35,8 @@ public class EmailVerificationController {
 			ModelAndView successView = new ModelAndView("success");
 			successView.addObject("message", "Email successfully verified! You can now close this page.");
 			return successView;
-		} else {
+		}
+		else {
 			// Verification failed, return failure page
 			ModelAndView errorView = new ModelAndView("failure");
 			errorView.addObject("message", "Invalid email verification token!");
